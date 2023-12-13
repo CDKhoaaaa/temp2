@@ -1,6 +1,91 @@
 ﻿@using WebBanHangOnline.Common
 <!DOCTYPE html>
 <html>
+<style>
+    .container-fluid.bg-secondary.text-dark {
+        padding: 60px 0; /* Adjust the padding as needed */
+    }
+
+    /* Style for the EShopper heading */
+    .display-5.font-weight-semi-bold {
+        color: #fff; /* Set the text color */
+    }
+
+    /* Style for the paragraphs */
+    .container-fluid.bg-secondary.text-dark p {
+        color: #ccc; /* Set the text color */
+    }
+
+        /* Style for the contact information */
+        .container-fluid.bg-secondary.text-dark p i {
+            color: #3498db; /* Set the icon color */
+            margin-right: 50px; /* Adjust the spacing between icon and text */
+        }
+
+    /* Style for the Quick Links section */
+    .font-weight-bold.text-dark.mb-4 {
+        color: #fff; /* Set the text color */
+    }
+
+    /* Style for the links in the Quick Links section */
+    .d-flex.flex-column.justify-content-start a.text-dark {
+        color: #ccc; /* Set the link text color */
+        text-decoration: none; /* Remove underline */
+        transition: color 0.3s ease; /* Add a smooth color transition */
+    }
+
+        .d-flex.flex-column.justify-content-start a.text-dark:hover {
+            color: #3498db; /* Change the link color on hover */
+        }
+
+    /* Style for the Subscribe section */
+    #mc_embed_signup {
+        padding: 10px; /* Adjust the padding as needed */
+        border-radius: 4px;
+    }
+
+    #mc_embed_signup h2 {
+        color: #333; /* Set the heading color */
+    }
+    #mc_embed_signup label {
+        font-size: 12px; /* Adjust the font size of labels */
+    }
+
+        #mc_embed_signup input[type="email"],
+        #mc_embed_signup input[type="text"] {
+            width: 100%;
+            height: 70%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 10px;
+        }
+
+        #mc_embed_signup input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; 
+        }
+
+            #mc_embed_signup input[type="submit"]:hover {
+                background-color: #267bbd; 
+            }
+
+    /* Style for the footer bottom section */
+    .row.border-top.border-light.mx-xl-5.py-4 {
+        background-color: #333;
+    }
+
+    .text-dark.font-weight-semi-bold {
+        color: #fff; /* Set the text color */
+    }
+
+        .text-dark.font-weight-semi-bold:hover {
+            color: #3498db; 
+        }
+</style>
 <head>
     <title>@ViewBag.Title</title>
     <meta charset="utf-8">
@@ -237,39 +322,53 @@
         @Html.Action("Partial_Subcrice", "Home")
         <!-- Footer -->
 
-        <footer class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
-                            <ul class="footer_nav">
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">FAQs</a></li>
-                                <li><a href="contact.html">Contact us</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
+                        <ul class="footer_nav">
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="contact.html">Contact us</a></li>
+                        </ul>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="footer_nav_container">
-                            <div class="cr">©2018 All Rights Reserverd. Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#">Colorlib</a> &amp; distributed by <a href="https://themewagon.com">ThemeWagon</a></div>
-                        </div>
+                <div class="col-lg-6">
+                    <div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer_nav_container">
+                        <div class="cr">©2018 All Rights Reserverd. Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#">Colorlib</a> &amp; distributed by <a href="https://themewagon.com">ThemeWagon</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid bg-secondary text-dark mt-5 pt-5">
+            <div class="row px-xl-5 pt-5">
+                <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
+                    <a href="" class="text-decoration-none">
+                        <h1 class="mb-4 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border border-white px-3 mr-1">E</span>Shopper</h1>
+                    </a>
+                    <p>Dolore erat dolor sit lorem vero amet. Sed sit lorem magna, ipsum no sit erat lorem et magna ipsum dolore amet erat.</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Street, New York, USA</p>
+                    <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@example.com</p>
+                    <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+012 345 67890</p>
+                </div>
+
+               
+        </div>
+    </footer>
 
     </div>
 

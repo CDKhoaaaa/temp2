@@ -3571,7 +3571,6 @@
     <Content Include="Views\News\Detail.cshtml" />
     <Content Include="Views\Article\Index.cshtml" />
     <Content Include="Views\ShoppingCart\VnpayReturn.cshtml" />
-    <Content Include="Views\ShoppingCart\SuccessView.cshtml" />
     <Content Include="Views\ShoppingCart\FailureView.cshtml" />
   </ItemGroup>
   <ItemGroup>

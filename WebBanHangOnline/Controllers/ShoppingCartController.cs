@@ -363,7 +363,7 @@ namespace WebBanHangOnline.Controllers
 
         public ActionResult SuccessView()
         {
-            return View(); 
+            return RedirectToAction("CheckOutSuccess");
         }
 
 
@@ -373,24 +373,16 @@ namespace WebBanHangOnline.Controllers
             //getting the apiContext  
             APIContext apiContext = PaypalConfiguration.GetAPIContext();
             try
-            {
-                //A resource representing a Payer that funds a payment Payment Method as paypal  
-                //Payer Id will be returned when payment proceeds or click to pay  
+            { 
                 string payerId = Request.Params["PayerID"];
                 if (string.IsNullOrEmpty(payerId))
                 {
-                    //this section will be executed first because PayerID doesn't exist  
-                    //it is returned by the create function call of the payment class  
-                    // Creating a payment  
-                    // baseURL is the url on which paypal sendsback the data.  
                     string baseURI = Request.Url.Scheme + "://" + Request.Url.Authority + "/shoppingcart/PaymentWithPayPal?";
-                    //here we are generating guid for storing the paymentID received in session  
-                    //which will be used in the payment execution  
+    
                     var guid = Convert.ToString((new Random()).Next(100000));
-                    //CreatePayment function gives us the payment approval url  
-                    //on which payer is redirected for paypal account payment  
+
                     var createdPayment = this.CreatePayment(apiContext, baseURI + "guid=" + guid);
-                    //get links returned from paypal in response to Create function call  
+                    
                     var links = createdPayment.links.GetEnumerator();
                     string paypalRedirectUrl = null;
                     while (links.MoveNext())
@@ -398,7 +390,7 @@ namespace WebBanHangOnline.Controllers
                         Links lnk = links.Current;
                         if (lnk.rel.ToLower().Trim().Equals("approval_url"))
                         {
-                            //saving the payapalredirect URL to which user will be redirected for payment  
+                            
                             paypalRedirectUrl = lnk.href;
                         }
                     }
@@ -414,7 +406,7 @@ namespace WebBanHangOnline.Controllers
                     //If executed payment failed then we will show payment failure message to user  
                     if (executedPayment.state.ToLower() != "approved")
                     {
-                        return View("FailureView");
+                        return View("Views/FailureView");
                     }
                     // Clear the shopping cart after a successful payment
 /*                    var guid = Request.Params["guid"];*/
@@ -425,7 +417,7 @@ namespace WebBanHangOnline.Controllers
                     }
 
                     //on successful payment, show success page to user.  
-                    return View("SuccessView");
+                    return View("CheckOutSuccess");
 
                 }
             }
